@@ -1,4 +1,4 @@
-# Project ka Mukhtasir Plan
+# Project Ghante ka Mukhtasir Plan
 
 - **Hour 1-2:** Project setup, folder structure banana, aur required packages install karna.
 - **Hour 3-5:** Core components aur main UI layouts code karna.
