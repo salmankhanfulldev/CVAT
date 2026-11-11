@@ -11,6 +11,7 @@ import { shallowEqual } from 'utils/redux';
 import { Row, Col } from 'antd/lib/grid';
 import Spin from 'antd/lib/spin';
 import notification from 'antd/lib/notification';
+import Divider from 'antd/lib/divider';
 
 import { getInferenceStatusAsync } from 'actions/models-actions';
 import { updateJobAsync, jobsActions } from 'actions/jobs-actions';
@@ -28,6 +29,8 @@ import { updateTaskAsync, updateTaskMetadataAsync } from 'actions/tasks-actions'
 import TopBarComponent from './top-bar';
 import DetailsComponent from './details';
 import { getCloudStorageById } from './cloud-storage-editor';
+// xis.ai Assessment: Annotation Analytics panel
+import AnnotationAnalytics from './annotation-analytics';
 
 const core = getCore();
 
@@ -152,6 +155,9 @@ function TaskPageComponent(): JSX.Element {
                         labelsEditorProps={labelsEditorProps}
                     />
                     <JobListComponent task={taskInstance} onJobUpdate={onJobUpdate} />
+                    {/* xis.ai Assessment: Annotation Analytics — Requirements #2, #3, #4, #7, #8, #9 */}
+                    <Divider />
+                    <AnnotationAnalytics taskId={taskInstance.id} />
                 </Col>
             </Row>
             <ModelRunnerModal />
