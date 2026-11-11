@@ -17,6 +17,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import ast
 import os
+import sys
 import tempfile
 import urllib
 from datetime import timedelta
@@ -33,6 +34,8 @@ from cvat.apps.iam.password_validation import DEFAULT_MIN_PASSWORD_LENGTH
 
 # Build paths inside the project like this: BASE_DIR / ...
 BASE_DIR = Path(os.environ.get("CVAT_BASE_DIR", Path(__file__).parents[2]))
+if str(BASE_DIR) not in sys.path or sys.path[0] != str(BASE_DIR):
+    sys.path.insert(0, str(BASE_DIR))
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 INTERNAL_IPS = ["127.0.0.1"]
